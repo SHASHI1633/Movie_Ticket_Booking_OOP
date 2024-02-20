@@ -1,1 +1,644 @@
-{"payload":{"allShortcutsEnabled":true,"fileTree":{"":{"items":[{"name":"movie_ticket_booking_oops.cpp","path":"movie_ticket_booking_oops.cpp","contentType":"file"}],"totalCount":1}},"fileTreeProcessingTime":7.106129,"foldersToFetch":[],"repo":{"id":569852997,"defaultBranch":"main","name":"movie_ticket_booking_oops","ownerLogin":"snehilgupta299","currentUserCanPush":false,"isFork":false,"isEmpty":false,"createdAt":"2022-11-24T00:35:20.000+05:30","ownerAvatar":"https://avatars.githubusercontent.com/u/84973399?v=4","public":true,"private":false,"isOrgOwned":false},"symbolsExpanded":false,"treeExpanded":true,"refInfo":{"name":"main","listCacheKey":"v0:1669230398.7450361","canEdit":true,"refType":"branch","currentOid":"a4106da7c977df9d9c985d5a5ed336e2805bbe91"},"path":"movie_ticket_booking_oops.cpp","currentUser":{"id":95365634,"login":"SHASHI1633","userEmail":"shashi1633@gmail.com"},"blob":{"rawLines":["// Header Files\r","#include <iostream>\r","#include <fstream>\r","#include <conio.h>\r","#include <string.h>\r","#include <math.h>\r","#include <stdlib.h>\r","#include <stdio.h>\r","#include <process.h>\r","#include <limits>\r","#include <time.h>\r","using namespace std;\r","\r","// Class definition for ticket\r","class ticket\r","{\r","public:\r","  char name[10];\r","  char cno[10];\r","  int seat;\r","} t; // object definition for ticket\r","\r","// Class definition for card\r","class card : public ticket\r","{ // inheritence for public ticket\r","public:\r","  char address[1000];\r","  char emailid[20];\r","} v; // object definition for card\r","\r","// Prototype Call for the functions definitions.\r","void pay(int);\r","void random();\r","void card();\r","void DTcardfile();\r","void file();\r","void seat();\r","int ID;\r","void menu()\r","{\r","  cout << \"\\n\\t\\t\\t ----------------------------------\";\r","  cout << \"\\n\\t\\t\\t\\t BOX OFFICE\";\r","  cout << \"\\n\\t\\t\\t ----------------------------------\";\r","  cout << \"\\n\\t\\t\\t\\t Welcome Customer!\"; // Menu for the user\r","  cout << \"\\n\\n\\t\\t\\t\\t <1> Movie Timings\";\r","  cout << \"\\n\\t\\t\\t\\t <2> Contact Us\";\r","  cout << \"\\n\\t\\t\\t\\t <3> DTcard Registration\";\r","  cout << \"\\n\\t\\t\\t\\t <4> Exit \\n\\n\";\r","  cout << \"\\t\\t\\t\\tEnter Your Choice :\"\r","       << \"\\t\";\r","}\r","// Main function\r","int main()\r","{\r","  system(\"CLS\");\r","  // Integer Declaration\r","  int choice, movie, b, N, x, cardid;\r","  char ans;\r","\r","  // An exit controlled loop (Do...While)\r","  do\r","  {\r","    menu();\r","    while (!(cin >> choice) && (choice < 1 || choice > 4))\r","    {\r","      cout << \"Invalid selection - Please input 1 to 4 only.\\n\";\r","\r","      cin.clear();\r","\r","      cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","    }\r","    switch (choice)\r","    {\r","    case 1:\r","      system(\"CLS\");\r","      cout << \"\\n\\n\\t\\t\\t\\t Movies :\";\r","      cout << \"\\n\\t\\t\\t\\t 1. Tenet\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  English\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Action,Thriller U/A\";\r","      cout << \"\\n\\t\\t\\t\\t 2. LA LA Land\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  English\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Drama,Musical,Romance A\";\r","      cout << \"\\n\\t\\t\\t\\t 3. Golmaal\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Hindi\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Drama,Comedy U/A\";\r","      cout << \"\\n\\t\\t\\t\\t 4. Mighty Raju\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Hindi\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Drama, Family U\";\r","      cout << \"\\n\\t\\t\\t\\t 5. Harry Potter\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  English\";\r","      cout << \"\\n\\t\\t\\t\\t\\t  Drama,Fantasy U/A\\n\";\r","      cout << \"\\n\\t\\t\\t\\tEnter Your Choice :\"\r","           << \"\\t\";\r","      cin >> movie;\r","      cout << \"\\n\\n\\t\\t\\t\\t The Timings for the selected show are:\";\r","      switch (movie)\r","      {\r","      case 1:\r","        system(\"CLS\");\r","        cout << \"\\n\\n\\t\\t\\t\\t Select the the timings: \";\r","        cout << \"\\n\\t\\t\\t\\t 1. 08:00\";\r","        cout << \"\\n\\t\\t\\t\\t 2. 13:00\";\r","        cout << \"\\n\\t\\t\\t\\t 3. 14:50\";\r","        cout << \"\\n\\t\\t\\t\\t 4. 18:00\";\r","        cout << \"\\n\\t\\t\\t\\t 5. 21:00\";\r","        cout << \"\\n\\t\\t\\t\\t 6. 22:00 \\n\"; // Timings of the show\r","        cout << \"\\n\\n\\t\\t\\t\\t Please select the timings: \";\r","        cin >> b;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Enter your name: \";\r","        cin >> t.name;\r","        cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","        cout << \"\\n\\n\\t\\t\\t\\t Enter your contact number: \";\r","        cin >> t.cno;\r","        if (strlen(t.cno) != 10)\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","          cin >> t.cno;\r","        }\r","        cout << \"\\n\\n\\t\\t\\t\\t Enter 1 to proceed: \";\r","        int x;\r","        cin >> x;\r","        seat();\r","        pay(x);\r","        cout << \"\\n\\n\\n\\t\\t\\t\\t Your ticket is here: \";\r","        cout << \"\\n\\t\\t\\t\\t Name \t\t:\" << t.name;\r","        cout << \"\\n\\t\\t\\t\\t Contact No\t:\" << t.cno;\r","        cout << \"\\n\\t\\t\\t\\t Show timings \t:\";\r","        switch (b)\r","        {\r","        case 1:\r","          cout << \"08:00\";\r","          break;\r","        case 2:\r","          cout << \"13:00\";\r","          break;\r","        case 3:\r","          cout << \"14:50\";\r","          break;\r","        case 4:\r","          cout << \"18:00\";\r","          break;\r","        case 5:\r","          cout << \"21:00\";\r","          break;\r","        case 6:\r","          cout << \"22:00\";\r","          break;\r","        default:\r","          cout << \"invalid input\";\r","        }\r","        file();\r","        cout<<endl<<\"Your ticket is downloaded with name Ticket1.txt\"<<endl<<endl;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Do you want to choose another option(y/n)\";\r","        cin >> ans;\r","        system(\"CLS\");\r","        break;\r","      case 2:\r","        system(\"CLS\");\r","        cout << \"\\n\\n\\t\\t\\t\\tSelect the the timings:\";\r","        cout << \"\\n\\t\\t\\t\\t 1. 09:00\";\r","        cout << \"\\n\\t\\t\\t\\t 2. 11:00\";\r","        cout << \"\\n\\t\\t\\t\\t 3. 12:50\";\r","        cout << \"\\n\\t\\t\\t\\t 4. 15:00\";\r","        cout << \"\\n\\t\\t\\t\\t 5. 20:00\";\r","        cout << \"\\n\\t\\t\\t\\t 6. 22:00\";\r","        cout << \"\\n\\t\\t\\t\\t Please select the timings: \";\r","        cin >> b;\r","        cout << \"\\n\\n\\t\\t\\t\\t Enter your name: \";\r","        cin >> t.name;\r","        cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","        cout << \"\\n\\t\\t\\t\\t Enter your contact number: \";\r","        cin >> t.cno;\r","        if (strlen(t.cno) != 10)\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","          cin >> t.cno;\r","        }\r","        cout << \"\\n\\t\\t\\t\\t Enter 1 to proceed: \";\r","        cin >> x;\r","        seat();\r","        pay(x);\r","        cout << \"\\n\\n\\t\\t\\t\\t Your ticket is here:\";\r","        cout << \"\\n\\t\\t\\t\\t Name \t\t:\" << t.name;\r","        cout << \"\\n\\t\\t\\t\\t Contact No\t:\" << t.cno;\r","        cout << \"\\n\\t\\t\\t\\tShow timings \t:\";\r","        switch (b)\r","        {\r","        case 1:\r","          cout << \"09:00\";\r","          break;\r","        case 2:\r","          cout << \"11:00\";\r","          break;\r","        case 3:\r","          cout << \"12:50\";\r","          break;\r","        case 4:\r","          cout << \"15:00\";\r","          break;\r","        case 5:\r","          cout << \"20:00\";\r","          break;\r","        case 6:\r","          cout << \"22:00\";\r","          break;\r","        }\r","        file();\r","        cout<<endl<<\"Your ticket is downloaded with name Ticket1.txt\"<<endl<<endl;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Do you want to choose another option(y/n)\";\r","        cin >> ans;\r","        system(\"CLS\");\r","        break;\r","      case 3:\r","        system(\"CLS\");\r","        cout << \"\\n\\n\\t\\t\\t\\tSelect the the timings:\";\r","        cout << \"\\n\\t\\t\\t\\t 1. 08:00\";\r","        cout << \"\\n\\t\\t\\t\\t 2. 13:00\";\r","        cout << \"\\n\\t\\t\\t\\t 3. 14:50\";\r","        cout << \"\\n\\t\\t\\t\\t 4. 18:00\";\r","        cout << \"\\n\\t\\t\\t\\t 5. 21:00\";\r","        cout << \"\\n\\t\\t\\t\\t 6. 22:00\";\r","        cout << \"\\n\\t\\t\\t\\t Please select the timings\";\r","        cin >> b;\r","        cout << \"\\n\\t\\t\\t\\t Enter your name: \";\r","        cin >> t.name;\r","        cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","        cout << \"\\n\\t\\t\\t\\t Enter your contact number: \";\r","        cin >> t.cno;\r","        if (strlen(t.cno) != 10)\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","          cin >> t.cno;\r","        }\r","        cout << \"\\n\\t\\t\\t\\tEnter 1 to proceed: \";\r","        cin >> x;\r","        seat();\r","        pay(x);\r","        cout << \"\\n\\n\\t\\t\\t\\t Your ticket is here: \";\r","        cout << \"\\n\\t\\t\\t\\t Name \t\t:\" << t.name;\r","        cout << \"\\n\\t\\t\\t\\t Contact No\t:\" << t.cno;\r","        cout << \"\\n\\t\\t\\t\\t Show timings \t:\";\r","        switch (b)\r","        {\r","        case 1:\r","          cout << \"08:00\";\r","          break;\r","        case 2:\r","          cout << \"13:00\";\r","          break;\r","        case 3:\r","          cout << \"14:50\";\r","          break;\r","        case 4:\r","          cout << \"18:00\";\r","          break;\r","        case 5:\r","          cout << \"21:00\";\r","          break;\r","        case 6:\r","          cout << \"22:00\";\r","          break;\r","        }\r","        file();\r","        cout<<endl<<\"Your ticket is downloaded with name Ticket1.txt\"<<endl<<endl;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Do you want to choose another option(y/n)\";\r","        cin >> ans;\r","        system(\"CLS\");\r","        break;\r","      case 4:\r","        system(\"CLS\");\r","        cout << \"\\n\\n\\t\\t\\t\\tSelect the the timings: \";\r","        cout << \"\\n\\t\\t\\t\\t 1. 08:00\";\r","        cout << \"\\n\\t\\t\\t\\t 2. 13:00\";\r","        cout << \"\\n\\t\\t\\t\\t 3. 14:50\";\r","        cout << \"\\n\\t\\t\\t\\t 4. 18:00\";\r","        cout << \"\\n\\t\\t\\t\\t 5. 21:00\";\r","        cout << \"\\n\\t\\t\\t\\t 6. 22::00\";\r","        cout << \"\\n\\t\\t\\t\\t Please select the timings: \";\r","        cin >> b;\r","        cout << \"\\n\\t\\t\\t\\t Enter your name: \";\r","        cin >> t.name;\r","        cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","        cout << \"\\n\\t\\t\\t\\t Enter your contact number: \";\r","        cin >> t.cno;\r","        if (strlen(t.cno) != 10)\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","          cin >> t.cno;\r","        }\r","        cout << \"\\n\\t\\t\\t\\t Enter 1 to proceed: \";\r","        cin >> x;\r","        seat();\r","        pay(x);\r","        cout << \"\\n\\n\\t\\t\\t\\t Your ticket is here: \";\r","        cout << \"\\n\\t\\t\\t\\t Name \t\t:\" << t.name;\r","        cout << \"\\n\\t\\t\\t\\t Contact No\t:\" << t.cno;\r","        cout << \"\\n\\t\\t\\t\\t Show timings \t:\";\r","        switch (b)\r","        {\r","        case 1:\r","          cout << \"08:00\";\r","          break;\r","        case 2:\r","          cout << \"13:00\";\r","          break;\r","        case 3:\r","          cout << \"14:50\";\r","          break;\r","        case 4:\r","          cout << \"18:00\";\r","          break;\r","        case 5:\r","          cout << \"21:00\";\r","          break;\r","        case 6:\r","          cout << \"22:00\";\r","          break;\r","        default:\r","          cout << \"Invalid input\";\r","        }\r","        file();\r","        cout<<endl<<\"Your ticket is downloaded with name Ticket1.txt\"<<endl<<endl;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Do you want to choose another option(y/n)\";\r","        cin >> ans;\r","        system(\"CLS\");\r","        break;\r","      case 5:\r","        system(\"CLS\");\r","        cout << \"\\n\\n\\t\\t\\t\\tSelect the the timings:\";\r","        cout << \"\\n\\t\\t\\t\\t 1. 08:00\";\r","        cout << \"\\n\\t\\t\\t\\t 2. 13:00\";\r","        cout << \"\\n\\t\\t\\t\\t 3. 14:50\";\r","        cout << \"\\n\\t\\t\\t\\t 4. 18:00\";\r","        cout << \"\\n\\t\\t\\t\\t 5. 21:00\";\r","        cout << \"\\n\\t\\t\\t\\t 6. 22:00\";\r","        cout << \"\\n\\t\\t\\t\\t Please select the timings: \";\r","        cin >> b;\r","        cout << \"\\n\\t\\t\\t\\t Enter your name: \";\r","        cin >> t.name;\r","        cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","        cout << \"\\n\\t\\t\\t\\t Enter your contact number: \";\r","        cin >> t.cno;\r","        if (strlen(t.cno) != 10)\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","          cin >> t.cno;\r","        }\r","        cout << \"\\n\\t\\t\\t\\t Enter 1 to proceed: \";\r","        cin >> x;\r","        seat();\r","        pay(x);\r","        cout << \"\\n \\n\\t\\t\\t\\t Your ticket is here: \";\r","        cout << \"\\n\\t\\t\\t\\t Name \t\t:\" << t.name;\r","        cout << \"\\n\\t\\t\\t\\t Contact No\t:\" << t.cno;\r","        cout << \"\\n\\t\\t\\t\\t Show timings \t:\";\r","        switch (b)\r","        {\r","        case 1:\r","          cout << \"08:00\";\r","          break;\r","        case 2:\r","          cout << \"13:00\";\r","          break;\r","        case 3:\r","          cout << \"14:50\";\r","          break;\r","        case 4:\r","          cout << \"18:00\";\r","          break;\r","        case 5:\r","          cout << \"21:00\";\r","          break;\r","        case 6:\r","          cout << \"22:00\";\r","          break;\r","        }\r","\r","        file();\r","        cout<<endl<<\"Your ticket is downloaded with name Ticket1.txt\"<<endl<<endl;\r","\r","        cout << \"\\n\\n\\t\\t\\t\\t Do you want to choose another option(y/n)\";\r","        cin >> ans;\r","        system(\"CLS\");\r","        break;\r","      default:\r","        cout << \"Invalid input\";\r","      }\r","      break;\r","\r","    case 2:\r","      system(\"CLS\");\r","      cout << \"You can download our app from Google Play store or Apple ios\";\r","       // Finding out more about our cinemas\r","      cout << \"\\n Do you want to choose another option(y/n)\";\r","      cin >> ans;\r","      system(\"CLS\");\r","      break;\r","    case 3:\r","      system(\"CLS\");\r","      cout << \"\\t\\t\\t\\tWelcome to start a new journey with our cinemas \\n\"; // card membership\r","      card();\r","      cout << \" It will take us a week for completing your registration for the card. \\n Please see the benefits of the card on the next page. -->\";\r","      char f;\r","      cout << \"\\n For selecting the page to go to benefits say (y/n)\\n\";\r","      cin >> f;\r","      if (f == 'y')\r","      {\r","        cout << \" Thank you for registeration once again \\n The priveleges provided with this card are as follows:\";\r","        cout << \"\\n 1. For every purchase of a movie ticket you get 25 points(1point = 1Rs.) so after 16 movies you get a free movie ticket.\";\r","        cout << \"\\n 2. You are provided with regular updates regarding the movie and the showtimings.\";\r","        cout << \"\\n 3. Anytime prebook tickets for the upcoming movie and preffered seats will be provided.\";\r","      }\r","      cout << \"\\n Do you want to choose another option(y/n)\";\r","      cin >> ans;\r","      if (ans == 'y')\r","      {\r","        system(\"CLS\");\r","        break;\r","      }\r","      else\r","      {\r","        exit(0);\r","      }\r","      break;\r","    case 4:\r","    {\r","      system(\"CLS\");\r","      cout << \"\\n\\t\\t\\t\\tTHANK YOU AND VISIT AGAIN!\\n\\n\\t\\t\\t\\t\";\r","      system(\"PAUSE\");\r","      exit(0);\r","      break;\r","    }\r","    }\r","  } while (ans == 'y');\r","}\r","\r","// Function Declaration for Card\r","void card()\r","{\r","  int cardid;\r","  cout << \"\\t\\t\\t\\tWelcome to register for card facility in our cinemas\";\r","  cout << \" \\n\\t\\t\\t\\tEnter your name: \";\r","  cin >> v.name;\r","  cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","  cout << \"\\t\\t\\t\\tEnter your mobile number: \";\r","  cin >> v.cno;\r","  if (strlen(v.cno) != 10)\r","  {\r","    cout << \"\\t\\t\\t\\tPlease enter a valid mobile number \";\r","    cin >> v.cno;\r","  }\r","  cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","  cout << \"\\t\\t\\t\\tEnter the mail id: \";\r","  gets(v.emailid);\r","  system(\"CLS\");\r","  int ID;\r","  srand(time(NULL));\r","  ID = rand() % 400000 + 4000000;\r","  if (ID < 0)\r","    ID = (ID * -1);\r","  cout << \"\\t\\t\\t\\tYour new card number is - :\"\r","       << \"\\t\" << ID;\r","\r","  cout << \"\\n Name :\" << v.name << \"\\n\"\r","       << \"\\n Mobile No. :\" << v.cno << \"\\n\"\r","       << \"\\n Mail ID :\" << v.emailid << \"\\n\"\r","       << \"\\nCard Number:\" << ID << \"\\n\";\r","\r","  DTcardfile();\r","  cout<<endl<<\"Your virtual is downloaded with name DTcard1.txt\"<<endl<<endl;\r","  cout << \"\\nThank you for the registeration for the card. \\n\";\r","}\r","\r","// Payment system for the interface\r","void pay(int a)\r","{\r","  int normal, gold, amt[2], id;\r","\r","  time_t t = time(NULL); // time setup\r","  tm *timePtr = localtime(&t);\r","  cout << \"\\t\\tThank you for selecting the show!\\nNow we request you to select your type of service \\n\\n\\t\\t\\t\\t 1.Normal Class \\n\\t\\t\\t\\t OR \\n\\t\\t\\t\\t 2. Gold Class(Additional services)\\n\\n\\t\\t\\t\\t\";\r","  int c;\r","  cin >> c;\r","  if (c == 1)\r","  {\r","    cout << \"\\n\\n\\t\\t\\t\\tYou selected for a Normal show \\n\\n\\t\\t\\t\\t\";\r","    system(\"PAUSE\");\r","    system(\"CLS\");\r","    amt[1] = a * 200;\r","    char final;\r","    cout << \"\\n\\n\\t\\t\\t\\tDo you have DTcard(y/n): \";\r","    cin >> final;\r","    if (final == 'y')\r","    {\r","      amt[1] = amt[1] - (0.1 * amt[1]);\r","    }\r","    cout << \"\\n\\t\\t\\t\\tWant to pay by Card(y/n): \";\r","    char rep;\r","    cin >> rep;\r","    cout << \"\\n\\t\\t\\t\\t\"\r","         << \"Paying :\" << amt[1] << \"\\n\";\r","    if (rep == 'y' || rep == 'Y')\r","    {\r","      cout << \"\\t\\t\\t\\tName of the card holder: \";\r","      char n[10];\r","      cin >> n;\r","      cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","      cout << \"\\n\\t\\t\\t\\tEnter the card number: \";\r","      char Card[16];\r","      gets(Card);\r","      cout << \"\\t\\t\\t\\tExpiry(MM/YYYY): \";\r","      int expirymm, expiryyy;\r","      cin >> expirymm;\r","      cout << \"\\t\\t\\t\\t/\";\r","      cin >> expiryyy;\r","      while ((expirymm <= 0) || (expirymm > 12) || (expiryyy < (timePtr->tm_year + 1000)))\r","      {\r","        if ((expirymm <= 0) || (expirymm > 12))\r","        {\r","          cout << \"\\t\\t\\t\\tEnter the month again: \";\r","          cin >> expirymm;\r","        }\r","        if (expiryyy < (timePtr->tm_year + 1000))\r","        {\r","          cout << \"\\t\\t\\t\\tPlease enter a valid year: \";\r","          cin >> expiryyy;\r","        }\r","      };\r","      cout << \"\\t\\t\\t\\tEnter the CVV/CVV2: \";\r","      char password[3];\r","      int i = 0;\r","      while (i < 3)\r","      {\r","        password[i] = getch();\r","        cout << \"*\";\r","        ++i;\r","      }\r","      password[i] = '\\0';\r","    }\r","  }\r","  else\r","  {\r","    cout << \"\\n\\n\\t\\t\\t\\tYou selected for the Gold Class \\n\\t\\t\\t\\t\";\r","    system(\"PAUSE\");\r","    system(\"CLS\");\r","    amt[2] = a * 700;\r","    char final;\r","    cout << \"\\n\\t\\t\\t\\tDo you have DTcard(y/n): \";\r","    cin >> final;\r","    if (final == 'y')\r","    {\r","      amt[1] = amt[1] - (0.1 * amt[1]);\r","    }\r","    cout << \"\\n\\t\\t\\t\\tWant to pay by Card(y/n): \";\r","    char rep;\r","    cin >> rep;\r","    cout << \"\\n\\t\\t\\t\\t\"\r","         << \"Paying :\" << amt[2] << \"\\n\";\r","    if (rep == 'y' || rep == 'Y')\r","    {\r","      cout << \"\\t\\t\\t\\tName of the card holder: \";\r","      char n[10];\r","      cin >> n;\r","      cin.ignore(numeric_limits<streamsize>::max(), '\\n');\r","      cout << \"\\n\\t\\t\\t\\tEnter the card number: \";\r","      char Card[16];\r","      gets(Card);\r","      cout << \"\\n\\t\\t\\t\\tExpiry(MM/YY): \";\r","      int expirymm, expiryyy;\r","      cin >> expirymm;\r","      cout << \"\\t\\t\\t\\t/\";\r","      cin >> expiryyy;\r","      while (expirymm < (timePtr->tm_mon) || expiryyy < (timePtr->tm_year + 1000))\r","      {\r","        if (expirymm <= (timePtr->tm_mon))\r","        {\r","          cout << \"\\n\\t\\t\\t\\tEnter the month again: \";\r","          cin >> expirymm;\r","        }\r","        if (expiryyy < (timePtr->tm_year + 1000))\r","        {\r","          cout << \"\\n\\t\\t\\t\\tPlease enter a valid year: \";\r","          cin >> expiryyy;\r","        }\r","      };\r","      cout << \"Enter the CVV/CVV2 \";\r","      char password[3];\r","      int i = 0;\r","      while (i < 3)\r","      {\r","        password[i] = getch();\r","        cout << \"*\";\r","        ++i;\r","      }\r","      password[i] = '\\0';\r","    }\r","    system(\"PAUSE\");\r","  };\r","}\r","void seat()\r","{\r","    cout<<\"\\t\\t\\t\\t***SCREEN THIS WAY***\"<<endl<<endl;\r","    for(int j=0;j<10;j++)\r","    {\r","        for(int i=0;i<10;i++)\r","        {\r","            cout<<\"\\t[\"<<j<<i<<\"]\";\r","        }\r","        cout<<endl;\r","    }\r","    cout<<endl;\r","    cout<<\"\\t\\t\\tEnter the seat you want to book: \";\r","    cin>>t.seat;\r","}\r","void file()\r","{\r","    ofstream outfile(\"Ticket1.txt\");\r","    outfile<<\"Name: \"<<t.name<<endl;\r","    outfile<<\"Contact no: \"<<t.cno<<endl;\r","    outfile<<\"Seat Number: \"<<t.seat<<endl;\r","    outfile.close();\r","}\r","void DTcardfile()\r","{\r","    ofstream outfile(\"DTcard1.txt\");\r","    outfile<<\"\\t\\t\\t\\t\\t Your virtual DT card\"<<endl<<endl;\r","  outfile<< \"\\t\\t\\t\\tYour new card number is - :\" << \"\\t\" << ID;\r","\r","  outfile << \"\\n Name :\" << v.name << \"\\n\"\r","       << \"\\n Mobile No. :\" << v.cno << \"\\n\"\r","       << \"\\n Mail ID :\" << v.emailid << \"\\n\"\r","       << \"\\nCard Number:\" << ID << \"\\n\";\r","\r","  cout << \"\\nThank you for the registeration for the card. \\n\"<<endl;\r","  outfile.close();\r","}\r","\r","\r","\r","\r"],"stylingDirectives":[[{"start":0,"end":15,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":18,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":18,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":19,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":18,"end":19,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":17,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":16,"end":17,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":19,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":18,"end":19,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":18,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":20,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":17,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":16,"end":17,"cssClass":"pl-pds"}],[{"start":1,"end":8,"cssClass":"pl-k"},{"start":9,"end":17,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":16,"end":17,"cssClass":"pl-pds"}],[{"start":0,"end":5,"cssClass":"pl-k"},{"start":6,"end":15,"cssClass":"pl-k"},{"start":16,"end":19,"cssClass":"pl-en"},{"start":19,"end":20,"cssClass":"pl-k"}],[],[{"start":0,"end":30,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[],[],[{"start":0,"end":7,"cssClass":"pl-k"}],[{"start":2,"end":6,"cssClass":"pl-k"},{"start":12,"end":14,"cssClass":"pl-c1"}],[{"start":2,"end":6,"cssClass":"pl-k"},{"start":11,"end":13,"cssClass":"pl-c1"}],[{"start":2,"end":5,"cssClass":"pl-k"}],[{"start":5,"end":36,"cssClass":"pl-c"},{"start":5,"end":7,"cssClass":"pl-c"}],[],[{"start":0,"end":28,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[],[{"start":2,"end":34,"cssClass":"pl-c"},{"start":2,"end":4,"cssClass":"pl-c"}],[],[{"start":2,"end":6,"cssClass":"pl-k"},{"start":15,"end":19,"cssClass":"pl-c1"}],[{"start":2,"end":6,"cssClass":"pl-k"},{"start":15,"end":17,"cssClass":"pl-c1"}],[{"start":5,"end":34,"cssClass":"pl-c"},{"start":5,"end":7,"cssClass":"pl-c"}],[],[{"start":0,"end":48,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[{"start":5,"end":8,"cssClass":"pl-en"},{"start":9,"end":12,"cssClass":"pl-k"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":11,"cssClass":"pl-en"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":15,"cssClass":"pl-en"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[{"start":0,"end":3,"cssClass":"pl-k"}],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[],[{"start":10,"end":55,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":54,"end":55,"cssClass":"pl-pds"}],[{"start":10,"end":33,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":21,"cssClass":"pl-cce"},{"start":32,"end":33,"cssClass":"pl-pds"}],[{"start":10,"end":55,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":54,"end":55,"cssClass":"pl-pds"}],[{"start":10,"end":40,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":21,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"},{"start":42,"end":62,"cssClass":"pl-c"},{"start":42,"end":44,"cssClass":"pl-c"}],[{"start":10,"end":42,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":23,"cssClass":"pl-cce"},{"start":41,"end":42,"cssClass":"pl-pds"}],[{"start":10,"end":37,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":21,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":10,"end":46,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":21,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":10,"end":36,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":21,"cssClass":"pl-cce"},{"start":31,"end":35,"cssClass":"pl-cce"},{"start":35,"end":36,"cssClass":"pl-pds"}],[{"start":10,"end":39,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":38,"end":39,"cssClass":"pl-pds"}],[{"start":10,"end":14,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":13,"end":14,"cssClass":"pl-pds"}],[],[{"start":0,"end":16,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[{"start":4,"end":8,"cssClass":"pl-en"}],[],[{"start":2,"end":8,"cssClass":"pl-c1"},{"start":9,"end":14,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":13,"end":14,"cssClass":"pl-pds"}],[{"start":2,"end":24,"cssClass":"pl-c"},{"start":2,"end":4,"cssClass":"pl-c"}],[{"start":2,"end":5,"cssClass":"pl-k"}],[{"start":2,"end":6,"cssClass":"pl-k"}],[],[{"start":2,"end":41,"cssClass":"pl-c"},{"start":2,"end":4,"cssClass":"pl-c"}],[{"start":2,"end":4,"cssClass":"pl-k"}],[],[{"start":4,"end":8,"cssClass":"pl-c1"}],[{"start":4,"end":9,"cssClass":"pl-k"},{"start":41,"end":42,"cssClass":"pl-c1"},{"start":55,"end":56,"cssClass":"pl-c1"}],[],[{"start":14,"end":63,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":60,"end":62,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[],[{"start":10,"end":15,"cssClass":"pl-c1"}],[],[{"start":10,"end":16,"cssClass":"pl-c1"},{"start":45,"end":48,"cssClass":"pl-c1"},{"start":52,"end":56,"cssClass":"pl-s"},{"start":52,"end":53,"cssClass":"pl-pds"},{"start":53,"end":55,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[],[{"start":4,"end":10,"cssClass":"pl-k"}],[],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":10,"cssClass":"pl-c1"}],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":18,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":14,"end":37,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":14,"end":35,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":34,"end":35,"cssClass":"pl-pds"}],[{"start":14,"end":37,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":14,"end":40,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":14,"end":37,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":14,"end":53,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[{"start":14,"end":37,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":14,"end":35,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":34,"end":35,"cssClass":"pl-pds"}],[{"start":14,"end":46,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":14,"end":41,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"}],[{"start":14,"end":35,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":34,"end":35,"cssClass":"pl-pds"}],[{"start":14,"end":45,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":44,"end":45,"cssClass":"pl-pds"}],[{"start":14,"end":42,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":41,"end":42,"cssClass":"pl-pds"}],[{"start":14,"end":37,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":46,"end":48,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":14,"end":45,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":44,"end":45,"cssClass":"pl-pds"}],[{"start":14,"end":18,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":17,"cssClass":"pl-cce"},{"start":17,"end":18,"cssClass":"pl-pds"}],[],[{"start":14,"end":67,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":27,"cssClass":"pl-cce"},{"start":66,"end":67,"cssClass":"pl-pds"}],[{"start":6,"end":12,"cssClass":"pl-k"}],[],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":16,"end":55,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":54,"end":55,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":40,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":37,"end":39,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"},{"start":42,"end":64,"cssClass":"pl-c"},{"start":42,"end":44,"cssClass":"pl-c"}],[{"start":16,"end":58,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[],[],[{"start":16,"end":48,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":47,"end":48,"cssClass":"pl-pds"}],[{"start":17,"end":21,"cssClass":"pl-smi"}],[{"start":12,"end":18,"cssClass":"pl-c1"},{"start":47,"end":50,"cssClass":"pl-c1"},{"start":54,"end":58,"cssClass":"pl-s"},{"start":54,"end":55,"cssClass":"pl-pds"},{"start":55,"end":57,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":58,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":17,"end":20,"cssClass":"pl-smi"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":12,"end":18,"cssClass":"pl-c1"},{"start":21,"end":24,"cssClass":"pl-smi"},{"start":29,"end":31,"cssClass":"pl-c1"}],[],[{"start":18,"end":63,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[{"start":19,"end":22,"cssClass":"pl-smi"}],[],[{"start":16,"end":51,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":50,"end":51,"cssClass":"pl-pds"}],[{"start":8,"end":11,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-c1"}],[{"start":16,"end":54,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":31,"cssClass":"pl-cce"},{"start":53,"end":54,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":43,"end":47,"cssClass":"pl-smi"}],[{"start":16,"end":41,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":47,"end":50,"cssClass":"pl-smi"}],[{"start":16,"end":44,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":15,"cssClass":"pl-k"}],[{"start":18,"end":33,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":32,"end":33,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":20,"end":69,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":68,"end":69,"cssClass":"pl-pds"}],[],[{"start":16,"end":72,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":16,"end":53,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[],[{"start":16,"end":48,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":47,"end":48,"cssClass":"pl-pds"}],[{"start":17,"end":21,"cssClass":"pl-smi"}],[{"start":12,"end":18,"cssClass":"pl-c1"},{"start":47,"end":50,"cssClass":"pl-c1"},{"start":54,"end":58,"cssClass":"pl-s"},{"start":54,"end":55,"cssClass":"pl-pds"},{"start":55,"end":57,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":17,"end":20,"cssClass":"pl-smi"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":12,"end":18,"cssClass":"pl-c1"},{"start":21,"end":24,"cssClass":"pl-smi"},{"start":29,"end":31,"cssClass":"pl-c1"}],[],[{"start":18,"end":63,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[{"start":19,"end":22,"cssClass":"pl-smi"}],[],[{"start":16,"end":49,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-c1"}],[{"start":16,"end":51,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":50,"end":51,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":43,"end":47,"cssClass":"pl-smi"}],[{"start":16,"end":41,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":47,"end":50,"cssClass":"pl-smi"}],[{"start":16,"end":43,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":42,"end":43,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":20,"end":69,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":68,"end":69,"cssClass":"pl-pds"}],[],[{"start":16,"end":72,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":16,"end":53,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":54,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":53,"end":54,"cssClass":"pl-pds"}],[],[{"start":16,"end":46,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":17,"end":21,"cssClass":"pl-smi"}],[{"start":12,"end":18,"cssClass":"pl-c1"},{"start":47,"end":50,"cssClass":"pl-c1"},{"start":54,"end":58,"cssClass":"pl-s"},{"start":54,"end":55,"cssClass":"pl-pds"},{"start":55,"end":57,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":17,"end":20,"cssClass":"pl-smi"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":12,"end":18,"cssClass":"pl-c1"},{"start":21,"end":24,"cssClass":"pl-smi"},{"start":29,"end":31,"cssClass":"pl-c1"}],[],[{"start":18,"end":63,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[{"start":19,"end":22,"cssClass":"pl-smi"}],[],[{"start":16,"end":48,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":47,"end":48,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-c1"}],[{"start":16,"end":52,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":51,"end":52,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":43,"end":47,"cssClass":"pl-smi"}],[{"start":16,"end":41,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":47,"end":50,"cssClass":"pl-smi"}],[{"start":16,"end":44,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":20,"end":69,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":68,"end":69,"cssClass":"pl-pds"}],[],[{"start":16,"end":72,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":16,"end":54,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":53,"end":54,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":38,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":37,"end":38,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[],[{"start":16,"end":46,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":17,"end":21,"cssClass":"pl-smi"}],[{"start":12,"end":18,"cssClass":"pl-c1"},{"start":47,"end":50,"cssClass":"pl-c1"},{"start":54,"end":58,"cssClass":"pl-s"},{"start":54,"end":55,"cssClass":"pl-pds"},{"start":55,"end":57,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":17,"end":20,"cssClass":"pl-smi"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":12,"end":18,"cssClass":"pl-c1"},{"start":21,"end":24,"cssClass":"pl-smi"},{"start":29,"end":31,"cssClass":"pl-c1"}],[],[{"start":18,"end":63,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[{"start":19,"end":22,"cssClass":"pl-smi"}],[],[{"start":16,"end":49,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-c1"}],[{"start":16,"end":52,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":51,"end":52,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":43,"end":47,"cssClass":"pl-smi"}],[{"start":16,"end":41,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":47,"end":50,"cssClass":"pl-smi"}],[{"start":16,"end":44,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":15,"cssClass":"pl-k"}],[{"start":18,"end":33,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":32,"end":33,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":20,"end":69,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":68,"end":69,"cssClass":"pl-pds"}],[],[{"start":16,"end":72,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":16,"end":53,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[],[{"start":16,"end":46,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":17,"end":21,"cssClass":"pl-smi"}],[{"start":12,"end":18,"cssClass":"pl-c1"},{"start":47,"end":50,"cssClass":"pl-c1"},{"start":54,"end":58,"cssClass":"pl-s"},{"start":54,"end":55,"cssClass":"pl-pds"},{"start":55,"end":57,"cssClass":"pl-cce"},{"start":57,"end":58,"cssClass":"pl-pds"}],[{"start":16,"end":56,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":17,"end":20,"cssClass":"pl-smi"}],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":12,"end":18,"cssClass":"pl-c1"},{"start":21,"end":24,"cssClass":"pl-smi"},{"start":29,"end":31,"cssClass":"pl-c1"}],[],[{"start":18,"end":63,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":62,"end":63,"cssClass":"pl-pds"}],[{"start":19,"end":22,"cssClass":"pl-smi"}],[],[{"start":16,"end":49,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":8,"end":11,"cssClass":"pl-c1"}],[{"start":16,"end":53,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":19,"cssClass":"pl-cce"},{"start":20,"end":30,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[{"start":16,"end":37,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":43,"end":47,"cssClass":"pl-smi"}],[{"start":16,"end":41,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":47,"end":50,"cssClass":"pl-smi"}],[{"start":16,"end":44,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":27,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":8,"end":14,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[{"start":8,"end":12,"cssClass":"pl-k"},{"start":13,"end":14,"cssClass":"pl-c1"}],[{"start":18,"end":25,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":24,"end":25,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-k"}],[],[],[{"start":8,"end":12,"cssClass":"pl-c1"}],[{"start":20,"end":69,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":68,"end":69,"cssClass":"pl-pds"}],[],[{"start":16,"end":72,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":29,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[{"start":6,"end":13,"cssClass":"pl-k"}],[{"start":16,"end":31,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":30,"end":31,"cssClass":"pl-pds"}],[],[{"start":6,"end":11,"cssClass":"pl-k"}],[],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":10,"cssClass":"pl-c1"}],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":18,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":14,"end":76,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":75,"end":76,"cssClass":"pl-pds"}],[{"start":7,"end":44,"cssClass":"pl-c"},{"start":7,"end":9,"cssClass":"pl-c"}],[{"start":14,"end":60,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":17,"cssClass":"pl-cce"},{"start":59,"end":60,"cssClass":"pl-pds"}],[],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":18,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":6,"end":11,"cssClass":"pl-k"}],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":10,"cssClass":"pl-c1"}],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":18,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":14,"end":74,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":71,"end":73,"cssClass":"pl-cce"},{"start":73,"end":74,"cssClass":"pl-pds"},{"start":76,"end":94,"cssClass":"pl-c"},{"start":76,"end":78,"cssClass":"pl-c"}],[{"start":6,"end":10,"cssClass":"pl-c1"}],[{"start":14,"end":147,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":86,"end":88,"cssClass":"pl-cce"},{"start":146,"end":147,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"}],[{"start":14,"end":71,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":17,"cssClass":"pl-cce"},{"start":68,"end":70,"cssClass":"pl-cce"},{"start":70,"end":71,"cssClass":"pl-pds"}],[],[{"start":6,"end":8,"cssClass":"pl-k"},{"start":15,"end":18,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[],[{"start":16,"end":115,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":57,"end":59,"cssClass":"pl-cce"},{"start":114,"end":115,"cssClass":"pl-pds"}],[{"start":16,"end":141,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":19,"cssClass":"pl-cce"},{"start":140,"end":141,"cssClass":"pl-pds"}],[{"start":16,"end":102,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":19,"cssClass":"pl-cce"},{"start":101,"end":102,"cssClass":"pl-pds"}],[{"start":16,"end":108,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":17,"end":19,"cssClass":"pl-cce"},{"start":107,"end":108,"cssClass":"pl-pds"}],[],[{"start":14,"end":60,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":17,"cssClass":"pl-cce"},{"start":59,"end":60,"cssClass":"pl-pds"}],[],[{"start":6,"end":8,"cssClass":"pl-k"},{"start":17,"end":20,"cssClass":"pl-s"},{"start":17,"end":18,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[],[{"start":8,"end":14,"cssClass":"pl-c1"},{"start":15,"end":20,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":8,"end":13,"cssClass":"pl-k"}],[],[{"start":6,"end":10,"cssClass":"pl-k"}],[],[{"start":8,"end":12,"cssClass":"pl-c1"},{"start":13,"end":14,"cssClass":"pl-c1"}],[],[{"start":6,"end":11,"cssClass":"pl-k"}],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":10,"cssClass":"pl-c1"}],[],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":18,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":14,"end":64,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":51,"end":63,"cssClass":"pl-cce"},{"start":63,"end":64,"cssClass":"pl-pds"}],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":13,"end":20,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-c1"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":6,"end":11,"cssClass":"pl-k"}],[],[],[{"start":4,"end":9,"cssClass":"pl-k"},{"start":18,"end":21,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":20,"end":21,"cssClass":"pl-pds"}],[],[],[{"start":0,"end":32,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[{"start":5,"end":9,"cssClass":"pl-en"}],[],[{"start":2,"end":5,"cssClass":"pl-k"}],[{"start":10,"end":72,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":71,"end":72,"cssClass":"pl-pds"}],[{"start":10,"end":40,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":12,"end":22,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":11,"end":15,"cssClass":"pl-smi"}],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":41,"end":44,"cssClass":"pl-c1"},{"start":48,"end":52,"cssClass":"pl-s"},{"start":48,"end":49,"cssClass":"pl-pds"},{"start":49,"end":51,"cssClass":"pl-cce"},{"start":51,"end":52,"cssClass":"pl-pds"}],[{"start":10,"end":46,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":11,"end":14,"cssClass":"pl-smi"}],[{"start":2,"end":4,"cssClass":"pl-k"},{"start":6,"end":12,"cssClass":"pl-c1"},{"start":15,"end":18,"cssClass":"pl-smi"},{"start":23,"end":25,"cssClass":"pl-c1"}],[],[{"start":12,"end":57,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":21,"cssClass":"pl-cce"},{"start":56,"end":57,"cssClass":"pl-pds"}],[{"start":13,"end":16,"cssClass":"pl-smi"}],[],[{"start":6,"end":12,"cssClass":"pl-c1"},{"start":41,"end":44,"cssClass":"pl-c1"},{"start":48,"end":52,"cssClass":"pl-s"},{"start":48,"end":49,"cssClass":"pl-pds"},{"start":49,"end":51,"cssClass":"pl-cce"},{"start":51,"end":52,"cssClass":"pl-pds"}],[{"start":10,"end":39,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":38,"end":39,"cssClass":"pl-pds"}],[{"start":2,"end":6,"cssClass":"pl-c1"},{"start":9,"end":16,"cssClass":"pl-smi"}],[{"start":2,"end":8,"cssClass":"pl-c1"},{"start":9,"end":14,"cssClass":"pl-s"},{"start":9,"end":10,"cssClass":"pl-pds"},{"start":13,"end":14,"cssClass":"pl-pds"}],[{"start":2,"end":5,"cssClass":"pl-k"}],[{"start":2,"end":7,"cssClass":"pl-c1"},{"start":8,"end":12,"cssClass":"pl-c1"},{"start":13,"end":17,"cssClass":"pl-c1"}],[{"start":7,"end":11,"cssClass":"pl-c1"},{"start":16,"end":22,"cssClass":"pl-c1"},{"start":25,"end":32,"cssClass":"pl-c1"}],[{"start":2,"end":4,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[{"start":16,"end":17,"cssClass":"pl-c1"}],[{"start":10,"end":47,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":46,"end":47,"cssClass":"pl-pds"}],[{"start":10,"end":14,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":13,"end":14,"cssClass":"pl-pds"}],[],[{"start":10,"end":21,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":27,"end":31,"cssClass":"pl-smi"},{"start":35,"end":39,"cssClass":"pl-s"},{"start":35,"end":36,"cssClass":"pl-pds"},{"start":36,"end":38,"cssClass":"pl-cce"},{"start":38,"end":39,"cssClass":"pl-pds"}],[{"start":10,"end":27,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":26,"end":27,"cssClass":"pl-pds"},{"start":33,"end":36,"cssClass":"pl-smi"},{"start":40,"end":44,"cssClass":"pl-s"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":41,"end":43,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":10,"end":24,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"},{"start":30,"end":37,"cssClass":"pl-smi"},{"start":41,"end":45,"cssClass":"pl-s"},{"start":41,"end":42,"cssClass":"pl-pds"},{"start":42,"end":44,"cssClass":"pl-cce"},{"start":44,"end":45,"cssClass":"pl-pds"}],[{"start":10,"end":26,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":25,"end":26,"cssClass":"pl-pds"},{"start":36,"end":40,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":37,"end":39,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[],[{"start":2,"end":12,"cssClass":"pl-c1"}],[{"start":14,"end":64,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":63,"end":64,"cssClass":"pl-pds"}],[{"start":10,"end":62,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":59,"end":61,"cssClass":"pl-cce"},{"start":61,"end":62,"cssClass":"pl-pds"}],[],[],[{"start":0,"end":35,"cssClass":"pl-c"},{"start":0,"end":2,"cssClass":"pl-c"}],[{"start":5,"end":8,"cssClass":"pl-en"},{"start":9,"end":12,"cssClass":"pl-k"}],[],[{"start":2,"end":5,"cssClass":"pl-k"},{"start":6,"end":12,"cssClass":"pl-c1"},{"start":24,"end":25,"cssClass":"pl-c1"}],[],[{"start":2,"end":8,"cssClass":"pl-c1"},{"start":13,"end":17,"cssClass":"pl-c1"},{"start":18,"end":22,"cssClass":"pl-c1"},{"start":25,"end":38,"cssClass":"pl-c"},{"start":25,"end":27,"cssClass":"pl-c"}],[{"start":2,"end":4,"cssClass":"pl-c1"},{"start":16,"end":25,"cssClass":"pl-c1"}],[{"start":10,"end":200,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":15,"cssClass":"pl-cce"},{"start":48,"end":50,"cssClass":"pl-cce"},{"start":100,"end":112,"cssClass":"pl-cce"},{"start":128,"end":138,"cssClass":"pl-cce"},{"start":142,"end":152,"cssClass":"pl-cce"},{"start":187,"end":199,"cssClass":"pl-cce"},{"start":199,"end":200,"cssClass":"pl-pds"}],[{"start":2,"end":5,"cssClass":"pl-k"}],[],[{"start":2,"end":4,"cssClass":"pl-k"},{"start":11,"end":12,"cssClass":"pl-c1"}],[],[{"start":12,"end":69,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":25,"cssClass":"pl-cce"},{"start":56,"end":68,"cssClass":"pl-cce"},{"start":68,"end":69,"cssClass":"pl-pds"}],[{"start":4,"end":10,"cssClass":"pl-c1"},{"start":11,"end":18,"cssClass":"pl-s"},{"start":11,"end":12,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":4,"end":10,"cssClass":"pl-c1"},{"start":11,"end":16,"cssClass":"pl-s"},{"start":11,"end":12,"cssClass":"pl-pds"},{"start":15,"end":16,"cssClass":"pl-pds"}],[{"start":8,"end":9,"cssClass":"pl-c1"},{"start":17,"end":20,"cssClass":"pl-c1"}],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":14,"cssClass":"pl-k"}],[{"start":12,"end":51,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":25,"cssClass":"pl-cce"},{"start":50,"end":51,"cssClass":"pl-pds"}],[{"start":11,"end":16,"cssClass":"pl-k"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":8,"end":13,"cssClass":"pl-k"},{"start":17,"end":20,"cssClass":"pl-s"},{"start":17,"end":18,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[],[{"start":10,"end":11,"cssClass":"pl-c1"},{"start":19,"end":20,"cssClass":"pl-c1"},{"start":25,"end":28,"cssClass":"pl-c1"},{"start":35,"end":36,"cssClass":"pl-c1"}],[],[{"start":12,"end":50,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":23,"cssClass":"pl-cce"},{"start":49,"end":50,"cssClass":"pl-pds"}],[{"start":4,"end":8,"cssClass":"pl-k"}],[],[{"start":12,"end":24,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":23,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"}],[{"start":12,"end":22,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":21,"end":22,"cssClass":"pl-pds"},{"start":30,"end":31,"cssClass":"pl-c1"},{"start":36,"end":40,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":37,"end":39,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":15,"end":18,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"},{"start":29,"end":32,"cssClass":"pl-s"},{"start":29,"end":30,"cssClass":"pl-pds"},{"start":31,"end":32,"cssClass":"pl-pds"}],[],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":13,"end":15,"cssClass":"pl-c1"}],[],[{"start":10,"end":16,"cssClass":"pl-c1"},{"start":45,"end":48,"cssClass":"pl-c1"},{"start":52,"end":56,"cssClass":"pl-s"},{"start":52,"end":53,"cssClass":"pl-pds"},{"start":53,"end":55,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":16,"end":18,"cssClass":"pl-c1"}],[{"start":6,"end":10,"cssClass":"pl-c1"}],[{"start":14,"end":41,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"}],[{"start":6,"end":9,"cssClass":"pl-k"}],[],[{"start":14,"end":25,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":24,"end":25,"cssClass":"pl-pds"}],[],[{"start":6,"end":11,"cssClass":"pl-k"},{"start":26,"end":27,"cssClass":"pl-c1"},{"start":44,"end":46,"cssClass":"pl-c1"},{"start":73,"end":80,"cssClass":"pl-smi"},{"start":83,"end":87,"cssClass":"pl-c1"}],[],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":25,"end":26,"cssClass":"pl-c1"},{"start":43,"end":45,"cssClass":"pl-c1"}],[],[{"start":18,"end":51,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":50,"end":51,"cssClass":"pl-pds"}],[],[],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":33,"end":40,"cssClass":"pl-smi"},{"start":43,"end":47,"cssClass":"pl-c1"}],[],[{"start":18,"end":55,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":27,"cssClass":"pl-cce"},{"start":54,"end":55,"cssClass":"pl-pds"}],[],[],[],[{"start":14,"end":44,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":20,"end":21,"cssClass":"pl-c1"}],[{"start":6,"end":9,"cssClass":"pl-k"},{"start":14,"end":15,"cssClass":"pl-c1"}],[{"start":6,"end":11,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[],[{"start":22,"end":27,"cssClass":"pl-c1"}],[{"start":16,"end":19,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":18,"end":19,"cssClass":"pl-pds"}],[],[],[{"start":20,"end":24,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":21,"end":23,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"}],[],[],[{"start":2,"end":6,"cssClass":"pl-k"}],[],[{"start":12,"end":68,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":25,"cssClass":"pl-cce"},{"start":57,"end":67,"cssClass":"pl-cce"},{"start":67,"end":68,"cssClass":"pl-pds"}],[{"start":4,"end":10,"cssClass":"pl-c1"},{"start":11,"end":18,"cssClass":"pl-s"},{"start":11,"end":12,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[{"start":4,"end":10,"cssClass":"pl-c1"},{"start":11,"end":16,"cssClass":"pl-s"},{"start":11,"end":12,"cssClass":"pl-pds"},{"start":15,"end":16,"cssClass":"pl-pds"}],[{"start":8,"end":9,"cssClass":"pl-c1"},{"start":17,"end":20,"cssClass":"pl-c1"}],[{"start":4,"end":8,"cssClass":"pl-k"},{"start":9,"end":14,"cssClass":"pl-k"}],[{"start":12,"end":49,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":23,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":11,"end":16,"cssClass":"pl-k"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":8,"end":13,"cssClass":"pl-k"},{"start":17,"end":20,"cssClass":"pl-s"},{"start":17,"end":18,"cssClass":"pl-pds"},{"start":19,"end":20,"cssClass":"pl-pds"}],[],[{"start":10,"end":11,"cssClass":"pl-c1"},{"start":19,"end":20,"cssClass":"pl-c1"},{"start":25,"end":28,"cssClass":"pl-c1"},{"start":35,"end":36,"cssClass":"pl-c1"}],[],[{"start":12,"end":50,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":23,"cssClass":"pl-cce"},{"start":49,"end":50,"cssClass":"pl-pds"}],[{"start":4,"end":8,"cssClass":"pl-k"}],[],[{"start":12,"end":24,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":23,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"}],[{"start":12,"end":22,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":21,"end":22,"cssClass":"pl-pds"},{"start":30,"end":31,"cssClass":"pl-c1"},{"start":36,"end":40,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":37,"end":39,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[{"start":4,"end":6,"cssClass":"pl-k"},{"start":15,"end":18,"cssClass":"pl-s"},{"start":15,"end":16,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"},{"start":29,"end":32,"cssClass":"pl-s"},{"start":29,"end":30,"cssClass":"pl-pds"},{"start":31,"end":32,"cssClass":"pl-pds"}],[],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":13,"end":15,"cssClass":"pl-c1"}],[],[{"start":10,"end":16,"cssClass":"pl-c1"},{"start":45,"end":48,"cssClass":"pl-c1"},{"start":52,"end":56,"cssClass":"pl-s"},{"start":52,"end":53,"cssClass":"pl-pds"},{"start":53,"end":55,"cssClass":"pl-cce"},{"start":55,"end":56,"cssClass":"pl-pds"}],[{"start":14,"end":49,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":16,"end":18,"cssClass":"pl-c1"}],[{"start":6,"end":10,"cssClass":"pl-c1"}],[{"start":14,"end":41,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":25,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"}],[{"start":6,"end":9,"cssClass":"pl-k"}],[],[{"start":14,"end":25,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":15,"end":23,"cssClass":"pl-cce"},{"start":24,"end":25,"cssClass":"pl-pds"}],[],[{"start":6,"end":11,"cssClass":"pl-k"},{"start":34,"end":40,"cssClass":"pl-smi"},{"start":66,"end":73,"cssClass":"pl-smi"},{"start":76,"end":80,"cssClass":"pl-c1"}],[],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":34,"end":40,"cssClass":"pl-smi"}],[],[{"start":18,"end":53,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":29,"cssClass":"pl-cce"},{"start":52,"end":53,"cssClass":"pl-pds"}],[],[],[{"start":8,"end":10,"cssClass":"pl-k"},{"start":33,"end":40,"cssClass":"pl-smi"},{"start":43,"end":47,"cssClass":"pl-c1"}],[],[{"start":18,"end":57,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":29,"cssClass":"pl-cce"},{"start":56,"end":57,"cssClass":"pl-pds"}],[],[],[],[{"start":14,"end":35,"cssClass":"pl-s"},{"start":14,"end":15,"cssClass":"pl-pds"},{"start":34,"end":35,"cssClass":"pl-pds"}],[{"start":6,"end":10,"cssClass":"pl-k"},{"start":20,"end":21,"cssClass":"pl-c1"}],[{"start":6,"end":9,"cssClass":"pl-k"},{"start":14,"end":15,"cssClass":"pl-c1"}],[{"start":6,"end":11,"cssClass":"pl-k"},{"start":17,"end":18,"cssClass":"pl-c1"}],[],[{"start":22,"end":27,"cssClass":"pl-c1"}],[{"start":16,"end":19,"cssClass":"pl-s"},{"start":16,"end":17,"cssClass":"pl-pds"},{"start":18,"end":19,"cssClass":"pl-pds"}],[],[],[{"start":20,"end":24,"cssClass":"pl-s"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":21,"end":23,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"}],[],[{"start":4,"end":10,"cssClass":"pl-c1"},{"start":11,"end":18,"cssClass":"pl-s"},{"start":11,"end":12,"cssClass":"pl-pds"},{"start":17,"end":18,"cssClass":"pl-pds"}],[],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[],[{"start":10,"end":41,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":19,"cssClass":"pl-cce"},{"start":40,"end":41,"cssClass":"pl-pds"}],[{"start":4,"end":7,"cssClass":"pl-k"},{"start":8,"end":11,"cssClass":"pl-k"},{"start":14,"end":15,"cssClass":"pl-c1"},{"start":18,"end":20,"cssClass":"pl-c1"}],[],[{"start":8,"end":11,"cssClass":"pl-k"},{"start":12,"end":15,"cssClass":"pl-k"},{"start":18,"end":19,"cssClass":"pl-c1"},{"start":22,"end":24,"cssClass":"pl-c1"}],[],[{"start":18,"end":23,"cssClass":"pl-s"},{"start":18,"end":19,"cssClass":"pl-pds"},{"start":19,"end":21,"cssClass":"pl-cce"},{"start":22,"end":23,"cssClass":"pl-pds"},{"start":31,"end":34,"cssClass":"pl-s"},{"start":31,"end":32,"cssClass":"pl-pds"},{"start":33,"end":34,"cssClass":"pl-pds"}],[],[],[],[],[{"start":10,"end":51,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":17,"cssClass":"pl-cce"},{"start":50,"end":51,"cssClass":"pl-pds"}],[{"start":11,"end":15,"cssClass":"pl-smi"}],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":9,"cssClass":"pl-en"}],[],[{"start":13,"end":20,"cssClass":"pl-smi"},{"start":21,"end":34,"cssClass":"pl-s"},{"start":21,"end":22,"cssClass":"pl-pds"},{"start":33,"end":34,"cssClass":"pl-pds"}],[{"start":13,"end":21,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":20,"end":21,"cssClass":"pl-pds"},{"start":25,"end":29,"cssClass":"pl-smi"}],[{"start":13,"end":27,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":26,"end":27,"cssClass":"pl-pds"},{"start":31,"end":34,"cssClass":"pl-smi"}],[{"start":13,"end":28,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":27,"end":28,"cssClass":"pl-pds"},{"start":32,"end":36,"cssClass":"pl-smi"}],[{"start":12,"end":17,"cssClass":"pl-c1"}],[],[{"start":0,"end":4,"cssClass":"pl-k"},{"start":5,"end":15,"cssClass":"pl-en"}],[],[{"start":13,"end":20,"cssClass":"pl-smi"},{"start":21,"end":34,"cssClass":"pl-s"},{"start":21,"end":22,"cssClass":"pl-pds"},{"start":33,"end":34,"cssClass":"pl-pds"}],[{"start":13,"end":46,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":14,"end":24,"cssClass":"pl-cce"},{"start":45,"end":46,"cssClass":"pl-pds"}],[{"start":12,"end":49,"cssClass":"pl-s"},{"start":12,"end":13,"cssClass":"pl-pds"},{"start":13,"end":21,"cssClass":"pl-cce"},{"start":48,"end":49,"cssClass":"pl-pds"},{"start":53,"end":57,"cssClass":"pl-s"},{"start":53,"end":54,"cssClass":"pl-pds"},{"start":54,"end":56,"cssClass":"pl-cce"},{"start":56,"end":57,"cssClass":"pl-pds"}],[],[{"start":13,"end":24,"cssClass":"pl-s"},{"start":13,"end":14,"cssClass":"pl-pds"},{"start":14,"end":16,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"},{"start":30,"end":34,"cssClass":"pl-smi"},{"start":38,"end":42,"cssClass":"pl-s"},{"start":38,"end":39,"cssClass":"pl-pds"},{"start":39,"end":41,"cssClass":"pl-cce"},{"start":41,"end":42,"cssClass":"pl-pds"}],[{"start":10,"end":27,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":26,"end":27,"cssClass":"pl-pds"},{"start":33,"end":36,"cssClass":"pl-smi"},{"start":40,"end":44,"cssClass":"pl-s"},{"start":40,"end":41,"cssClass":"pl-pds"},{"start":41,"end":43,"cssClass":"pl-cce"},{"start":43,"end":44,"cssClass":"pl-pds"}],[{"start":10,"end":24,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":23,"end":24,"cssClass":"pl-pds"},{"start":30,"end":37,"cssClass":"pl-smi"},{"start":41,"end":45,"cssClass":"pl-s"},{"start":41,"end":42,"cssClass":"pl-pds"},{"start":42,"end":44,"cssClass":"pl-cce"},{"start":44,"end":45,"cssClass":"pl-pds"}],[{"start":10,"end":26,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":25,"end":26,"cssClass":"pl-pds"},{"start":36,"end":40,"cssClass":"pl-s"},{"start":36,"end":37,"cssClass":"pl-pds"},{"start":37,"end":39,"cssClass":"pl-cce"},{"start":39,"end":40,"cssClass":"pl-pds"}],[],[{"start":10,"end":62,"cssClass":"pl-s"},{"start":10,"end":11,"cssClass":"pl-pds"},{"start":11,"end":13,"cssClass":"pl-cce"},{"start":59,"end":61,"cssClass":"pl-cce"},{"start":61,"end":62,"cssClass":"pl-pds"}],[{"start":10,"end":15,"cssClass":"pl-c1"}],[],[],[],[],[]],"csv":null,"csvError":null,"dependabotInfo":{"showConfigurationBanner":false,"configFilePath":null,"networkDependabotPath":"/snehilgupta299/movie_ticket_booking_oops/network/updates","dismissConfigurationNoticePath":"/settings/dismiss-notice/dependabot_configuration_notice","configurationNoticeDismissed":false,"repoAlertsPath":"/snehilgupta299/movie_ticket_booking_oops/security/dependabot","repoSecurityAndAnalysisPath":"/snehilgupta299/movie_ticket_booking_oops/settings/security_analysis","repoOwnerIsOrg":false,"currentUserCanAdminRepo":false},"displayName":"movie_ticket_booking_oops.cpp","displayUrl":"https://github.com/snehilgupta299/movie_ticket_booking_oops/blob/main/movie_ticket_booking_oops.cpp?raw=true","headerInfo":{"blobSize":"18.4 KB","deleteInfo":{"deleteTooltip":"Fork this repository and delete the file"},"editInfo":{"editTooltip":"Fork this repository and edit the file"},"ghDesktopPath":"https://desktop.github.com","gitLfsPath":null,"onBranch":true,"shortPath":"9bd4820","siteNavLoginPath":"/login?return_to=https%3A%2F%2Fgithub.com%2Fsnehilgupta299%2Fmovie_ticket_booking_oops%2Fblob%2Fmain%2Fmovie_ticket_booking_oops.cpp","isCSV":false,"isRichtext":false,"toc":null,"lineInfo":{"truncatedLoc":"645","truncatedSloc":"620"},"mode":"file"},"image":false,"isCodeownersFile":null,"isPlain":false,"isValidLegacyIssueTemplate":false,"issueTemplateHelpUrl":"https://docs.github.com/articles/about-issue-and-pull-request-templates","issueTemplate":null,"discussionTemplate":null,"language":"C++","languageID":43,"large":false,"loggedIn":true,"newDiscussionPath":"/snehilgupta299/movie_ticket_booking_oops/discussions/new","newIssuePath":"/snehilgupta299/movie_ticket_booking_oops/issues/new","planSupportInfo":{"repoIsFork":null,"repoOwnedByCurrentUser":null,"requestFullPath":"/snehilgupta299/movie_ticket_booking_oops/blob/main/movie_ticket_booking_oops.cpp","showFreeOrgGatedFeatureMessage":null,"showPlanSupportBanner":null,"upgradeDataAttributes":null,"upgradePath":null},"publishBannersInfo":{"dismissActionNoticePath":"/settings/dismiss-notice/publish_action_from_dockerfile","releasePath":"/snehilgupta299/movie_ticket_booking_oops/releases/new?marketplace=true","showPublishActionBanner":false},"rawBlobUrl":"https://github.com/snehilgupta299/movie_ticket_booking_oops/raw/main/movie_ticket_booking_oops.cpp","renderImageOrRaw":false,"richText":null,"renderedFileInfo":null,"shortPath":null,"symbolsEnabled":true,"tabSize":8,"topBannersInfo":{"overridingGlobalFundingFile":false,"globalPreferredFundingPath":null,"repoOwner":"snehilgupta299","repoName":"movie_ticket_booking_oops","showInvalidCitationWarning":false,"citationHelpUrl":"https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files","showDependabotConfigurationBanner":false,"actionsOnboardingTip":null},"truncated":false,"viewable":true,"workflowRedirectUrl":null,"symbols":{"timed_out":false,"not_analyzed":false,"symbols":[{"name":"ticket","kind":"class","ident_start":281,"ident_end":287,"extent_start":275,"extent_end":350,"fully_qualified_name":"ticket","ident_utf16":{"start":{"line_number":14,"utf16_col":6},"end":{"line_number":14,"utf16_col":12}},"extent_utf16":{"start":{"line_number":14,"utf16_col":0},"end":{"line_number":20,"utf16_col":1}}},{"name":"card","kind":"class","ident_start":425,"ident_end":429,"extent_start":419,"extent_end":537,"fully_qualified_name":"card","ident_utf16":{"start":{"line_number":23,"utf16_col":6},"end":{"line_number":23,"utf16_col":10}},"extent_utf16":{"start":{"line_number":23,"utf16_col":0},"end":{"line_number":28,"utf16_col":1}}},{"name":"pay","kind":"function","ident_start":629,"ident_end":632,"extent_start":624,"extent_end":638,"fully_qualified_name":"pay","ident_utf16":{"start":{"line_number":31,"utf16_col":5},"end":{"line_number":31,"utf16_col":8}},"extent_utf16":{"start":{"line_number":31,"utf16_col":0},"end":{"line_number":31,"utf16_col":14}}},{"name":"random","kind":"function","ident_start":645,"ident_end":651,"extent_start":640,"extent_end":654,"fully_qualified_name":"random","ident_utf16":{"start":{"line_number":32,"utf16_col":5},"end":{"line_number":32,"utf16_col":11}},"extent_utf16":{"start":{"line_number":32,"utf16_col":0},"end":{"line_number":32,"utf16_col":14}}},{"name":"card","kind":"function","ident_start":661,"ident_end":665,"extent_start":656,"extent_end":668,"fully_qualified_name":"card","ident_utf16":{"start":{"line_number":33,"utf16_col":5},"end":{"line_number":33,"utf16_col":9}},"extent_utf16":{"start":{"line_number":33,"utf16_col":0},"end":{"line_number":33,"utf16_col":12}}},{"name":"DTcardfile","kind":"function","ident_start":675,"ident_end":685,"extent_start":670,"extent_end":688,"fully_qualified_name":"DTcardfile","ident_utf16":{"start":{"line_number":34,"utf16_col":5},"end":{"line_number":34,"utf16_col":15}},"extent_utf16":{"start":{"line_number":34,"utf16_col":0},"end":{"line_number":34,"utf16_col":18}}},{"name":"file","kind":"function","ident_start":695,"ident_end":699,"extent_start":690,"extent_end":702,"fully_qualified_name":"file","ident_utf16":{"start":{"line_number":35,"utf16_col":5},"end":{"line_number":35,"utf16_col":9}},"extent_utf16":{"start":{"line_number":35,"utf16_col":0},"end":{"line_number":35,"utf16_col":12}}},{"name":"seat","kind":"function","ident_start":709,"ident_end":713,"extent_start":704,"extent_end":716,"fully_qualified_name":"seat","ident_utf16":{"start":{"line_number":36,"utf16_col":5},"end":{"line_number":36,"utf16_col":9}},"extent_utf16":{"start":{"line_number":36,"utf16_col":0},"end":{"line_number":36,"utf16_col":12}}},{"name":"menu","kind":"function","ident_start":732,"ident_end":736,"extent_start":727,"extent_end":1191,"fully_qualified_name":"menu","ident_utf16":{"start":{"line_number":38,"utf16_col":5},"end":{"line_number":38,"utf16_col":9}},"extent_utf16":{"start":{"line_number":38,"utf16_col":0},"end":{"line_number":50,"utf16_col":1}}},{"name":"main","kind":"function","ident_start":1215,"ident_end":1219,"extent_start":1211,"extent_end":13167,"fully_qualified_name":"main","ident_utf16":{"start":{"line_number":52,"utf16_col":4},"end":{"line_number":52,"utf16_col":8}},"extent_utf16":{"start":{"line_number":52,"utf16_col":0},"end":{"line_number":439,"utf16_col":1}}},{"name":"card","kind":"function","ident_start":13210,"ident_end":13214,"extent_start":13205,"extent_end":14266,"fully_qualified_name":"card","ident_utf16":{"start":{"line_number":442,"utf16_col":5},"end":{"line_number":442,"utf16_col":9}},"extent_utf16":{"start":{"line_number":442,"utf16_col":0},"end":{"line_number":476,"utf16_col":1}}},{"name":"pay","kind":"function","ident_start":14312,"ident_end":14315,"extent_start":14307,"extent_end":17800,"fully_qualified_name":"pay","ident_utf16":{"start":{"line_number":479,"utf16_col":5},"end":{"line_number":479,"utf16_col":8}},"extent_utf16":{"start":{"line_number":479,"utf16_col":0},"end":{"line_number":603,"utf16_col":1}}},{"name":"seat","kind":"function","ident_start":17807,"ident_end":17811,"extent_start":17802,"extent_end":18116,"fully_qualified_name":"seat","ident_utf16":{"start":{"line_number":604,"utf16_col":5},"end":{"line_number":604,"utf16_col":9}},"extent_utf16":{"start":{"line_number":604,"utf16_col":0},"end":{"line_number":618,"utf16_col":1}}},{"name":"file","kind":"function","ident_start":18123,"ident_end":18127,"extent_start":18118,"extent_end":18321,"fully_qualified_name":"file","ident_utf16":{"start":{"line_number":619,"utf16_col":5},"end":{"line_number":619,"utf16_col":9}},"extent_utf16":{"start":{"line_number":619,"utf16_col":0},"end":{"line_number":626,"utf16_col":1}}},{"name":"DTcardfile","kind":"function","ident_start":18328,"ident_end":18338,"extent_start":18323,"extent_end":18786,"fully_qualified_name":"DTcardfile","ident_utf16":{"start":{"line_number":627,"utf16_col":5},"end":{"line_number":627,"utf16_col":15}},"extent_utf16":{"start":{"line_number":627,"utf16_col":0},"end":{"line_number":640,"utf16_col":1}}}]}},"copilotInfo":{"documentationUrl":"https://docs.github.com/copilot/overview-of-github-copilot/about-github-copilot-for-individuals","notices":{"codeViewPopover":{"dismissed":false,"dismissPath":"/settings/dismiss-notice/code_view_copilot_popover"}},"userAccess":{"accessAllowed":false,"hasSubscriptionEnded":false,"orgHasCFBAccess":false,"userHasCFIAccess":false,"userHasOrgs":false,"userIsOrgAdmin":false,"userIsOrgMember":false,"business":null,"featureRequestInfo":null}},"copilotAccessAllowed":false,"csrf_tokens":{"/snehilgupta299/movie_ticket_booking_oops/branches":{"post":"iyzsm9pXlrVtiw7s6aQMK6WXJ9VyVZXjCuMb_b3ejiuIB6nyPUnqLNWEO0OVVCHHc8Z3Sm6wUBPk6lfkrfMVwA"},"/repos/preferences":{"post":"EDzeT5poXGSGXqI74xrikMFUzf9Y3emM2FpPY6XLXXHNyg286Fr2Xmg5JSkenOUkRkI9SDVYevK7hNjBj5nTUw"}}},"title":"movie_ticket_booking_oops/movie_ticket_booking_oops.cpp at main · snehilgupta299/movie_ticket_booking_oops"}
+// Header Files
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <process.h>
+#include <limits>
+#include <time.h>
+using namespace std;
+
+// Class definition for ticket
+class ticket
+{
+public:
+  char name[10];
+  char cno[10];
+  int seat;
+} t; // object definition for ticket
+
+// Class definition for card
+class card : public ticket
+{ // inheritence for public ticket
+public:
+  char address[1000];
+  char emailid[20];
+} v; // object definition for card
+
+// Prototype Call for the functions definitions.
+void pay(int);
+void random();
+void card();
+void DTcardfile();
+void file();
+void seat();
+int ID;
+void menu()
+{
+  cout << "\n\t\t\t ----------------------------------";
+  cout << "\n\t\t\t\t BOX OFFICE";
+  cout << "\n\t\t\t ----------------------------------";
+  cout << "\n\t\t\t\t Welcome Customer!"; // Menu for the user
+  cout << "\n\n\t\t\t\t <1> Movie Timings";
+  cout << "\n\t\t\t\t <2> Contact Us";
+  cout << "\n\t\t\t\t <3> DTcard Registration";
+  cout << "\n\t\t\t\t <4> Exit \n\n";
+  cout << "\t\t\t\tEnter Your Choice :"
+       << "\t";
+}
+// Main function
+int main()
+{
+  system("CLS");
+  // Integer Declaration
+  int choice, movie, b, N, x, cardid;
+  char ans;
+
+  // An exit controlled loop (Do...While)
+  do
+  {
+    menu();
+    while (!(cin >> choice) && (choice < 1 || choice > 4))
+    {
+      cout << "Invalid selection - Please input 1 to 4 only.\n";
+
+      cin.clear();
+
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    switch (choice)
+    {
+    case 1:
+      system("CLS");
+      cout << "\n\n\t\t\t\t Movies :";
+      cout << "\n\t\t\t\t 1. Tenet";
+      cout << "\n\t\t\t\t\t  English";
+      cout << "\n\t\t\t\t\t  Action,Thriller U/A";
+      cout << "\n\t\t\t\t 2. LA LA Land";
+      cout << "\n\t\t\t\t\t  English";
+      cout << "\n\t\t\t\t\t  Drama,Musical,Romance A";
+      cout << "\n\t\t\t\t 3. Golmaal";
+      cout << "\n\t\t\t\t\t  Hindi";
+      cout << "\n\t\t\t\t\t  Drama,Comedy U/A";
+      cout << "\n\t\t\t\t 4. Mighty Raju";
+      cout << "\n\t\t\t\t\t  Hindi";
+      cout << "\n\t\t\t\t\t  Drama, Family U";
+      cout << "\n\t\t\t\t 5. Harry Potter";
+      cout << "\n\t\t\t\t\t  English";
+      cout << "\n\t\t\t\t\t  Drama,Fantasy U/A\n";
+      cout << "\n\t\t\t\tEnter Your Choice :"
+           << "\t";
+      cin >> movie;
+      cout << "\n\n\t\t\t\t The Timings for the selected show are:";
+      switch (movie)
+      {
+      case 1:
+        system("CLS");
+        cout << "\n\n\t\t\t\t Select the the timings: ";
+        cout << "\n\t\t\t\t 1. 08:00";
+        cout << "\n\t\t\t\t 2. 13:00";
+        cout << "\n\t\t\t\t 3. 14:50";
+        cout << "\n\t\t\t\t 4. 18:00";
+        cout << "\n\t\t\t\t 5. 21:00";
+        cout << "\n\t\t\t\t 6. 22:00 \n"; // Timings of the show
+        cout << "\n\n\t\t\t\t Please select the timings: ";
+        cin >> b;
+
+        cout << "\n\n\t\t\t\t Enter your name: ";
+        cin >> t.name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n\n\t\t\t\t Enter your contact number: ";
+        cin >> t.cno;
+        if (strlen(t.cno) != 10)
+        {
+          cout << "\t\t\t\tPlease enter a valid mobile number ";
+          cin >> t.cno;
+        }
+        cout << "\n\n\t\t\t\t Enter 1 to proceed: ";
+        int x;
+        cin >> x;
+        seat();
+        pay(x);
+        cout << "\n\n\n\t\t\t\t Your ticket is here: ";
+        cout << "\n\t\t\t\t Name 		:" << t.name;
+        cout << "\n\t\t\t\t Contact No	:" << t.cno;
+        cout << "\n\t\t\t\t Show timings 	:";
+        switch (b)
+        {
+        case 1:
+          cout << "08:00";
+          break;
+        case 2:
+          cout << "13:00";
+          break;
+        case 3:
+          cout << "14:50";
+          break;
+        case 4:
+          cout << "18:00";
+          break;
+        case 5:
+          cout << "21:00";
+          break;
+        case 6:
+          cout << "22:00";
+          break;
+        default:
+          cout << "invalid input";
+        }
+        file();
+        cout<<endl<<"Your ticket is downloaded with name Ticket1.txt"<<endl<<endl;
+
+        cout << "\n\n\t\t\t\t Do you want to choose another option(y/n)";
+        cin >> ans;
+        system("CLS");
+        break;
+      case 2:
+        system("CLS");
+        cout << "\n\n\t\t\t\tSelect the the timings:";
+        cout << "\n\t\t\t\t 1. 09:00";
+        cout << "\n\t\t\t\t 2. 11:00";
+        cout << "\n\t\t\t\t 3. 12:50";
+        cout << "\n\t\t\t\t 4. 15:00";
+        cout << "\n\t\t\t\t 5. 20:00";
+        cout << "\n\t\t\t\t 6. 22:00";
+        cout << "\n\t\t\t\t Please select the timings: ";
+        cin >> b;
+        cout << "\n\n\t\t\t\t Enter your name: ";
+        cin >> t.name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n\t\t\t\t Enter your contact number: ";
+        cin >> t.cno;
+        if (strlen(t.cno) != 10)
+        {
+          cout << "\t\t\t\tPlease enter a valid mobile number ";
+          cin >> t.cno;
+        }
+        cout << "\n\t\t\t\t Enter 1 to proceed: ";
+        cin >> x;
+        seat();
+        pay(x);
+        cout << "\n\n\t\t\t\t Your ticket is here:";
+        cout << "\n\t\t\t\t Name 		:" << t.name;
+        cout << "\n\t\t\t\t Contact No	:" << t.cno;
+        cout << "\n\t\t\t\tShow timings 	:";
+        switch (b)
+        {
+        case 1:
+          cout << "09:00";
+          break;
+        case 2:
+          cout << "11:00";
+          break;
+        case 3:
+          cout << "12:50";
+          break;
+        case 4:
+          cout << "15:00";
+          break;
+        case 5:
+          cout << "20:00";
+          break;
+        case 6:
+          cout << "22:00";
+          break;
+        }
+        file();
+        cout<<endl<<"Your ticket is downloaded with name Ticket1.txt"<<endl<<endl;
+
+        cout << "\n\n\t\t\t\t Do you want to choose another option(y/n)";
+        cin >> ans;
+        system("CLS");
+        break;
+      case 3:
+        system("CLS");
+        cout << "\n\n\t\t\t\tSelect the the timings:";
+        cout << "\n\t\t\t\t 1. 08:00";
+        cout << "\n\t\t\t\t 2. 13:00";
+        cout << "\n\t\t\t\t 3. 14:50";
+        cout << "\n\t\t\t\t 4. 18:00";
+        cout << "\n\t\t\t\t 5. 21:00";
+        cout << "\n\t\t\t\t 6. 22:00";
+        cout << "\n\t\t\t\t Please select the timings";
+        cin >> b;
+        cout << "\n\t\t\t\t Enter your name: ";
+        cin >> t.name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n\t\t\t\t Enter your contact number: ";
+        cin >> t.cno;
+        if (strlen(t.cno) != 10)
+        {
+          cout << "\t\t\t\tPlease enter a valid mobile number ";
+          cin >> t.cno;
+        }
+        cout << "\n\t\t\t\tEnter 1 to proceed: ";
+        cin >> x;
+        seat();
+        pay(x);
+        cout << "\n\n\t\t\t\t Your ticket is here: ";
+        cout << "\n\t\t\t\t Name 		:" << t.name;
+        cout << "\n\t\t\t\t Contact No	:" << t.cno;
+        cout << "\n\t\t\t\t Show timings 	:";
+        switch (b)
+        {
+        case 1:
+          cout << "08:00";
+          break;
+        case 2:
+          cout << "13:00";
+          break;
+        case 3:
+          cout << "14:50";
+          break;
+        case 4:
+          cout << "18:00";
+          break;
+        case 5:
+          cout << "21:00";
+          break;
+        case 6:
+          cout << "22:00";
+          break;
+        }
+        file();
+        cout<<endl<<"Your ticket is downloaded with name Ticket1.txt"<<endl<<endl;
+
+        cout << "\n\n\t\t\t\t Do you want to choose another option(y/n)";
+        cin >> ans;
+        system("CLS");
+        break;
+      case 4:
+        system("CLS");
+        cout << "\n\n\t\t\t\tSelect the the timings: ";
+        cout << "\n\t\t\t\t 1. 08:00";
+        cout << "\n\t\t\t\t 2. 13:00";
+        cout << "\n\t\t\t\t 3. 14:50";
+        cout << "\n\t\t\t\t 4. 18:00";
+        cout << "\n\t\t\t\t 5. 21:00";
+        cout << "\n\t\t\t\t 6. 22::00";
+        cout << "\n\t\t\t\t Please select the timings: ";
+        cin >> b;
+        cout << "\n\t\t\t\t Enter your name: ";
+        cin >> t.name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n\t\t\t\t Enter your contact number: ";
+        cin >> t.cno;
+        if (strlen(t.cno) != 10)
+        {
+          cout << "\t\t\t\tPlease enter a valid mobile number ";
+          cin >> t.cno;
+        }
+        cout << "\n\t\t\t\t Enter 1 to proceed: ";
+        cin >> x;
+        seat();
+        pay(x);
+        cout << "\n\n\t\t\t\t Your ticket is here: ";
+        cout << "\n\t\t\t\t Name 		:" << t.name;
+        cout << "\n\t\t\t\t Contact No	:" << t.cno;
+        cout << "\n\t\t\t\t Show timings 	:";
+        switch (b)
+        {
+        case 1:
+          cout << "08:00";
+          break;
+        case 2:
+          cout << "13:00";
+          break;
+        case 3:
+          cout << "14:50";
+          break;
+        case 4:
+          cout << "18:00";
+          break;
+        case 5:
+          cout << "21:00";
+          break;
+        case 6:
+          cout << "22:00";
+          break;
+        default:
+          cout << "Invalid input";
+        }
+        file();
+        cout<<endl<<"Your ticket is downloaded with name Ticket1.txt"<<endl<<endl;
+
+        cout << "\n\n\t\t\t\t Do you want to choose another option(y/n)";
+        cin >> ans;
+        system("CLS");
+        break;
+      case 5:
+        system("CLS");
+        cout << "\n\n\t\t\t\tSelect the the timings:";
+        cout << "\n\t\t\t\t 1. 08:00";
+        cout << "\n\t\t\t\t 2. 13:00";
+        cout << "\n\t\t\t\t 3. 14:50";
+        cout << "\n\t\t\t\t 4. 18:00";
+        cout << "\n\t\t\t\t 5. 21:00";
+        cout << "\n\t\t\t\t 6. 22:00";
+        cout << "\n\t\t\t\t Please select the timings: ";
+        cin >> b;
+        cout << "\n\t\t\t\t Enter your name: ";
+        cin >> t.name;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout << "\n\t\t\t\t Enter your contact number: ";
+        cin >> t.cno;
+        if (strlen(t.cno) != 10)
+        {
+          cout << "\t\t\t\tPlease enter a valid mobile number ";
+          cin >> t.cno;
+        }
+        cout << "\n\t\t\t\t Enter 1 to proceed: ";
+        cin >> x;
+        seat();
+        pay(x);
+        cout << "\n \n\t\t\t\t Your ticket is here: ";
+        cout << "\n\t\t\t\t Name 		:" << t.name;
+        cout << "\n\t\t\t\t Contact No	:" << t.cno;
+        cout << "\n\t\t\t\t Show timings 	:";
+        switch (b)
+        {
+        case 1:
+          cout << "08:00";
+          break;
+        case 2:
+          cout << "13:00";
+          break;
+        case 3:
+          cout << "14:50";
+          break;
+        case 4:
+          cout << "18:00";
+          break;
+        case 5:
+          cout << "21:00";
+          break;
+        case 6:
+          cout << "22:00";
+          break;
+        }
+
+        file();
+        cout<<endl<<"Your ticket is downloaded with name Ticket1.txt"<<endl<<endl;
+
+        cout << "\n\n\t\t\t\t Do you want to choose another option(y/n)";
+        cin >> ans;
+        system("CLS");
+        break;
+      default:
+        cout << "Invalid input";
+      }
+      break;
+
+    case 2:
+      system("CLS");
+      cout << "You can download our app from Google Play store or Apple ios";
+       // Finding out more about our cinemas
+      cout << "\n Do you want to choose another option(y/n)";
+      cin >> ans;
+      system("CLS");
+      break;
+    case 3:
+      system("CLS");
+      cout << "\t\t\t\tWelcome to start a new journey with our cinemas \n"; // card membership
+      card();
+      cout << " It will take us a week for completing your registration for the card. \n Please see the benefits of the card on the next page. -->";
+      char f;
+      cout << "\n For selecting the page to go to benefits say (y/n)\n";
+      cin >> f;
+      if (f == 'y')
+      {
+        cout << " Thank you for registeration once again \n The priveleges provided with this card are as follows:";
+        cout << "\n 1. For every purchase of a movie ticket you get 25 points(1point = 1Rs.) so after 16 movies you get a free movie ticket.";
+        cout << "\n 2. You are provided with regular updates regarding the movie and the showtimings.";
+        cout << "\n 3. Anytime prebook tickets for the upcoming movie and preffered seats will be provided.";
+      }
+      cout << "\n Do you want to choose another option(y/n)";
+      cin >> ans;
+      if (ans == 'y')
+      {
+        system("CLS");
+        break;
+      }
+      else
+      {
+        exit(0);
+      }
+      break;
+    case 4:
+    {
+      system("CLS");
+      cout << "\n\t\t\t\tTHANK YOU AND VISIT AGAIN!\n\n\t\t\t\t";
+      system("PAUSE");
+      exit(0);
+      break;
+    }
+    }
+  } while (ans == 'y');
+}
+
+// Function Declaration for Card
+void card()
+{
+  int cardid;
+  cout << "\t\t\t\tWelcome to register for card facility in our cinemas";
+  cout << " \n\t\t\t\tEnter your name: ";
+  cin >> v.name;
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  cout << "\t\t\t\tEnter your mobile number: ";
+  cin >> v.cno;
+  if (strlen(v.cno) != 10)
+  {
+    cout << "\t\t\t\tPlease enter a valid mobile number ";
+    cin >> v.cno;
+  }
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  cout << "\t\t\t\tEnter the mail id: ";
+  gets(v.emailid);
+  system("CLS");
+  int ID;
+  srand(time(NULL));
+  ID = rand() % 400000 + 4000000;
+  if (ID < 0)
+    ID = (ID * -1);
+  cout << "\t\t\t\tYour new card number is - :"
+       << "\t" << ID;
+
+  cout << "\n Name :" << v.name << "\n"
+       << "\n Mobile No. :" << v.cno << "\n"
+       << "\n Mail ID :" << v.emailid << "\n"
+       << "\nCard Number:" << ID << "\n";
+
+  DTcardfile();
+  cout<<endl<<"Your virtual is downloaded with name DTcard1.txt"<<endl<<endl;
+  cout << "\nThank you for the registeration for the card. \n";
+}
+
+// Payment system for the interface
+void pay(int a)
+{
+  int normal, gold, amt[2], id;
+
+  time_t t = time(NULL); // time setup
+  tm *timePtr = localtime(&t);
+  cout << "\t\tThank you for selecting the show!\nNow we request you to select your type of service \n\n\t\t\t\t 1.Normal Class \n\t\t\t\t OR \n\t\t\t\t 2. Gold Class(Additional services)\n\n\t\t\t\t";
+  int c;
+  cin >> c;
+  if (c == 1)
+  {
+    cout << "\n\n\t\t\t\tYou selected for a Normal show \n\n\t\t\t\t";
+    system("PAUSE");
+    system("CLS");
+    amt[1] = a * 200;
+    char final;
+    cout << "\n\n\t\t\t\tDo you have DTcard(y/n): ";
+    cin >> final;
+    if (final == 'y')
+    {
+      amt[1] = amt[1] - (0.1 * amt[1]);
+    }
+    cout << "\n\t\t\t\tWant to pay by Card(y/n): ";
+    char rep;
+    cin >> rep;
+    cout << "\n\t\t\t\t"
+         << "Paying :" << amt[1] << "\n";
+    if (rep == 'y' || rep == 'Y')
+    {
+      cout << "\t\t\t\tName of the card holder: ";
+      char n[10];
+      cin >> n;
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "\n\t\t\t\tEnter the card number: ";
+      char Card[16];
+      gets(Card);
+      cout << "\t\t\t\tExpiry(MM/YYYY): ";
+      int expirymm, expiryyy;
+      cin >> expirymm;
+      cout << "\t\t\t\t/";
+      cin >> expiryyy;
+      while ((expirymm <= 0) || (expirymm > 12) || (expiryyy < (timePtr->tm_year + 1000)))
+      {
+        if ((expirymm <= 0) || (expirymm > 12))
+        {
+          cout << "\t\t\t\tEnter the month again: ";
+          cin >> expirymm;
+        }
+        if (expiryyy < (timePtr->tm_year + 1000))
+        {
+          cout << "\t\t\t\tPlease enter a valid year: ";
+          cin >> expiryyy;
+        }
+      };
+      cout << "\t\t\t\tEnter the CVV/CVV2: ";
+      char password[3];
+      int i = 0;
+      while (i < 3)
+      {
+        password[i] = getch();
+        cout << "*";
+        ++i;
+      }
+      password[i] = '\0';
+    }
+  }
+  else
+  {
+    cout << "\n\n\t\t\t\tYou selected for the Gold Class \n\t\t\t\t";
+    system("PAUSE");
+    system("CLS");
+    amt[2] = a * 700;
+    char final;
+    cout << "\n\t\t\t\tDo you have DTcard(y/n): ";
+    cin >> final;
+    if (final == 'y')
+    {
+      amt[1] = amt[1] - (0.1 * amt[1]);
+    }
+    cout << "\n\t\t\t\tWant to pay by Card(y/n): ";
+    char rep;
+    cin >> rep;
+    cout << "\n\t\t\t\t"
+         << "Paying :" << amt[2] << "\n";
+    if (rep == 'y' || rep == 'Y')
+    {
+      cout << "\t\t\t\tName of the card holder: ";
+      char n[10];
+      cin >> n;
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      cout << "\n\t\t\t\tEnter the card number: ";
+      char Card[16];
+      gets(Card);
+      cout << "\n\t\t\t\tExpiry(MM/YY): ";
+      int expirymm, expiryyy;
+      cin >> expirymm;
+      cout << "\t\t\t\t/";
+      cin >> expiryyy;
+      while (expirymm < (timePtr->tm_mon) || expiryyy < (timePtr->tm_year + 1000))
+      {
+        if (expirymm <= (timePtr->tm_mon))
+        {
+          cout << "\n\t\t\t\tEnter the month again: ";
+          cin >> expirymm;
+        }
+        if (expiryyy < (timePtr->tm_year + 1000))
+        {
+          cout << "\n\t\t\t\tPlease enter a valid year: ";
+          cin >> expiryyy;
+        }
+      };
+      cout << "Enter the CVV/CVV2 ";
+      char password[3];
+      int i = 0;
+      while (i < 3)
+      {
+        password[i] = getch();
+        cout << "*";
+        ++i;
+      }
+      password[i] = '\0';
+    }
+    system("PAUSE");
+  };
+}
+void seat()
+{
+    cout<<"\t\t\t\t***SCREEN THIS WAY***"<<endl<<endl;
+    for(int j=0;j<10;j++)
+    {
+        for(int i=0;i<10;i++)
+        {
+            cout<<"\t["<<j<<i<<"]";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+    cout<<"\t\t\tEnter the seat you want to book: ";
+    cin>>t.seat;
+}
+void file()
+{
+    ofstream outfile("Ticket1.txt");
+    outfile<<"Name: "<<t.name<<endl;
+    outfile<<"Contact no: "<<t.cno<<endl;
+    outfile<<"Seat Number: "<<t.seat<<endl;
+    outfile.close();
+}
+void DTcardfile()
+{
+    ofstream outfile("DTcard1.txt");
+    outfile<<"\t\t\t\t\t Your virtual DT card"<<endl<<endl;
+  outfile<< "\t\t\t\tYour new card number is - :" << "\t" << ID;
+
+  outfile << "\n Name :" << v.name << "\n"
+       << "\n Mobile No. :" << v.cno << "\n"
+       << "\n Mail ID :" << v.emailid << "\n"
+       << "\nCard Number:" << ID << "\n";
+
+  cout << "\nThank you for the registeration for the card. \n"<<endl;
+  outfile.close();
+}
+
+
+
